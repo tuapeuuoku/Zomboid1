@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ZombieBehaviour : MonoBehaviour
 {
-    int hp = 10;
+    int hp = 5;
     GameObject player;
     // Start is called before the first frame update
     void Start()
@@ -36,7 +36,7 @@ public class ZombieBehaviour : MonoBehaviour
                 transform.Translate(Vector3.up);
                 transform.Rotate(Vector3.right * -90);
                 GetComponent<BoxCollider>().enabled = false;
-                Destroy(transform.gameObject, 10);
+                Destroy(transform.gameObject, 3);
             }
         }
     }
