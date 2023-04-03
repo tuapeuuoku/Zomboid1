@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class PlayerControler : MonoBehaviour
 {
     Vector2 movementVector;
-    int hp = 10;
+    float hp = 10;
     Transform bulletSpawn;
     public GameObject bulletPrefab;
     public float bulletSpeed = 20;
@@ -54,6 +54,12 @@ public class PlayerControler : MonoBehaviour
             hpScrollBar.size = hp / 10;
             Vector3 pushVector = collision.gameObject.transform.position - transform.position;
             collision.gameObject.GetComponent<Rigidbody>().AddForce(pushVector.normalized * 5, ForceMode.Impulse);
+        }
+        if (collision.gameObject.CompareTag("Heal"))
+        {
+            hp = 10;
+            hpScrollBar.size = hp / 10;
+            Destroy(collision.gameObject);
         }
     }
     void Die()
