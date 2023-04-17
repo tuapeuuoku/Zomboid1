@@ -344,6 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5f1dd1318961084a8f2a867e204a244, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sightRange: 15
 --- !u!65 &2745928052864789487
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -384,7 +385,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 1
-  m_Acceleration: 0.1
+  m_Acceleration: 1
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
