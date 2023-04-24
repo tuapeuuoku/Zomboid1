@@ -19,7 +19,7 @@ public class Spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.FindGameObjectsWithTag("Enemy").Length < 1)
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length < 3)
         {
             Instantiate(ZombiePefab, GetRandomSpawnPosition(), Quaternion.identity);
         }
@@ -37,7 +37,7 @@ public class Spawn : MonoBehaviour
             spawnPoint = UnityEngine.Random.insideUnitSphere;
             spawnPoint.y = 0f;
             spawnPoint = spawnPoint.normalized;
-            spawnPoint *= UnityEngine.Random.Range(10f, 20f);
+            spawnPoint *= UnityEngine.Random.Range(8f, 13f);
             spawnPoint += Player.transform.position;
         }
         //TODO: check this shit

@@ -26,6 +26,7 @@ public class ZombieBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (hp <= 0) return;
         Vector3 raySource = transform.position + Vector3.up * 1.8f;
         Vector3 rayDirection = player.transform.position - transform.position;
         Debug.DrawRay(raySource, rayDirection);
@@ -66,7 +67,7 @@ public class ZombieBehaviour : MonoBehaviour
             agent.isStopped = true;
         }
     }
-        private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("bullet"))
         {
@@ -74,11 +75,18 @@ public class ZombieBehaviour : MonoBehaviour
             hp--;
             if (hp <= 0)
             {
-                transform.Translate(Vector3.up);
-                transform.Rotate(Vector3.right * -90);
-                GetComponent<BoxCollider>().enabled = false;
-                Destroy(transform.gameObject, 3);
+                Die();
+
             }
         }
+    }
+    private void Die()
+    {
+        agent.enabled = false;
+        transform.Translate(Vector3.up * 0.2f);
+        transform.Rotate(transform.right * -90);
+        GetComponent<BoxCollider>().enabled = false;
+        Destroy(transform.gameObject, 5);
+
     }
 }
